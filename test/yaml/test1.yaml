@@ -1,0 +1,13 @@
+key1: val1
+key2:
+  - 1
+  - 2
+  - 3
+  - 4
+key3:
+  key3key1: val3val1
+  key3key2:
+    - key3key211: val3val211
+    - key3key221:
+      - true
+      - false
