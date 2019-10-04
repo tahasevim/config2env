@@ -11,7 +11,7 @@ service_b:
 ```
 Execute the tool as below:
 
-`config2env --input config.yaml --type yaml --output config.env `
+`$ config2env --input config.yaml --type yaml --output config.env `
 
 Generated environment variables are stored `config.env` as below:
 ```
