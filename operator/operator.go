@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/fatih/color"
 	"github.com/tahasevim/config2env/parser"
@@ -11,40 +12,41 @@ import (
 
 // Operator is the main type of the tool that operates parsing and logging
 type Operator struct {
-	filename   string
-	filetype   string
-	outputFile string
-	prefix     string
+	input    string
+	filetype string
+	output   string
+	prefix   string
 	parser.Parser
 	envs []parser.EnvPair
 }
 
 // NewOperator creates and returns a new instance of the Operator type
-func NewOperator(filename, filetype, outputFile, prefix string) *Operator {
+func NewOperator(input, filetype, output, prefix string) *Operator {
 	parsers := map[string]parser.Parser{
 		"json": &parser.JsonParser{},
 		"yaml": &parser.YamlParser{},
 	}
 	return &Operator{
-		filename:   filename,
-		filetype:   filetype,
-		outputFile: outputFile,
-		prefix:     prefix,
-		Parser:     parsers[filetype],
+		input:    input,
+		filetype: filetype,
+		output:   output,
+		prefix:   strings.ToUpper(prefix),
+		Parser:   parsers[filetype],
 	}
 }
 
 // Start simply starts parsing operation
 func (o *Operator) Start() {
-	o.envs = o.Parse(o.filename, o.prefix)
+	o.envs = o.Parse(o.input, o.prefix)
 }
 
 // LogFile writes generated environment variables to the output file.
 func (o *Operator) LogFile() {
-	f, err := os.Create(o.outputFile)
+	f, err := os.Create(o.output)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalln(err)
 	}
+
 	for _, env := range o.envs {
 		f.WriteString(env.Key + "=" + env.Value + "\n")
 	}
