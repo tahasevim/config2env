@@ -51,13 +51,13 @@ COPY main.go .
 CMD ["go", "run", "main.go"]
 EOF
 ```
-Finally run built docker image:
+Finally we can run built docker image:
 
 ```docker
 docker run --env-file config.env testenv
 ```
 
-You will results printed to screen which will be similar to:
+You will see results printed to the screen which will be similar to:
 ```
 PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 HOSTNAME=febf40d13596
