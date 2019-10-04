@@ -1,6 +1,6 @@
 # config2env
 
-config2env is a simple CLI tool that exports your configuration files in various formats such as JSON, YAML to Unix environment variables.
+config2env is a simple CLI tool that converts your JSON and YAML configuration files to Unix environment variables.
 
 **Note:** For now, only JSON and YAML files are supported. 
 TOML and HCL formats also will be supported.
