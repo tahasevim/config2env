@@ -45,7 +45,7 @@ func main() {
 Then you can build an image as below:
 
 ```docker
-docker build -t testenv -f- . <<EOF
+$ docker build -t testenv -f- . <<EOF
 FROM golang:latest
 COPY main.go .
 CMD ["go", "run", "main.go"]
@@ -54,7 +54,7 @@ EOF
 Finally we can run built docker image:
 
 ```docker
-docker run --env-file config.env testenv
+$ docker run --env-file config.env testenv
 ```
 
 You will see results printed to the screen which will be similar to:
