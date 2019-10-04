@@ -26,7 +26,7 @@ SERVICE_B_ADDR=localhost
 SERVICE_B_PORT=9090
 ```
 
-and we get a simply program `main.go` as below:
+and assume that we have a simple program `main.go` as below:
 ```go
 package main
 
