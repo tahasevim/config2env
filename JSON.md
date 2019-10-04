@@ -15,7 +15,7 @@ Let's have `config.json` with the contents of:
 ```
 Execute the tool as below:
 
-`config2env --input config.json --type json --output config.env `
+`$ config2env --input config.json --type json --output config.env `
 
 Generated environment variables are stored `config.env` as below:
 ```
